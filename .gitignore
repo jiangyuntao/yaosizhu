@@ -1,0 +1,15 @@
+application/Runtime/~runtime.php
+application/Runtime/Cache
+application/Runtime/Data
+application/Runtime/Logs
+application/Runtime/Temp
+admin/Runtime/~runtime.php
+admin/Runtime/Cache
+admin/Runtime/Data
+admin/Runtime/Logs
+admin/Runtime/Temp
+*.tmp
+*.bak
+*.swp
+Thumbs.db
+Desktop.ini
