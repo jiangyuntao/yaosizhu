@@ -2,10 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>页面提示 - 大开网</title>
+<title>页面提示</title>
 <meta http-equiv='Refresh' content='{$waitSecond};URL={$jumpUrl}'>
-<link media="all" rel="stylesheet" href="/style/bootstrap.min.css" type="text/css" />
-<link media="all" rel="stylesheet" href="/style/admin.css" type="text/css" />
+<link media="all" rel="stylesheet" href="/css/bootstrap.min.css" type="text/css" />
+<link media="all" rel="stylesheet" href="/css/admin.css" type="text/css" />
 </head>
 <body>
 <div class="container-fluid" style="margin-top: 160px;">
@@ -18,7 +18,7 @@
       <div>
             <present name="message" >
             <div class="alert alert-success">
-              {$msgTitle}{$message} ——
+              {$msgTitle} {$message} ——
               <present name="closeWin" >
                   页面将在 <span class="wait">{$waitSecond}</span> 秒后自动关闭，如果不想等待请点击 <a href="{$jumpUrl}">这里</a> 关闭
               <else/>
@@ -27,7 +27,7 @@
             </div>
             <else/>
             <div class="alert alert-error">
-              {$msgTitle}{$error} ——
+              {$msgTitle} {$error} ——
               <present name="closeWin" >
                   页面将在 <span class="wait">{$waitSecond}</span> 秒后自动关闭，如果不想等待请点击 <a href="{$jumpUrl}">这里</a> 关闭
               <else/>

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<include file="Public:header" />
+<body>
+
+<include file="Public:navbar" />
+
+<div class="sidebar-nav">
+  <div class="well">
+    <ul class="nav nav-list">
+      <li class="active"><a href="__APP__/"><i class="icon-zoom-in"></i> 渠道查看</a></li>
+      <li><a href="__APP__/index/create"><i class="icon-plus"></i> 添加渠道</a></li>
+      <li><div class="divider"></div></li>
+      <li><a href="__APP__/user/change_password"><i class="icon-user"></i> 修改密码</a></li>
+      <li><a href="__APP__/user/signout"><i class="icon-off"></i> 退出登录</a></li>
+    </ul>
+  </div>
+</div><!--/.sidebar-nav-->
+
+<div class="container-fluid content">
+  <div class="row-fluid">
+    <!-- Bread Crumb Navigation -->
+    <div class="span12">
+      <div>
+        <ul class="breadcrumb">
+          <li><a href="__APP__/">咬死猪渠道管理平台</a> <span class="divider">/</span></li>
+          <li class="active">修改渠道 - "#{$channel.id} 「{$channel.name} : {$channel.url}」"</li>
+        </ul>
+      </div>
+
+      <div class="row-fluid">
+        <div class="span12">
+          <div class="box">
+            <div class="box-container">
+            <div class="box-content">
+              <form class="form form-horizontal" method="post" action="">
+                <div class="control-group">
+                  <label for="name" class="control-label"><span class="star">*</span> 渠道商：</label>
+                  <div class="controls">
+                    <input type="text" class="input-xlarge" id="name" name="name" value="{$channel.name}" />
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label for="url" class="control-label"><span class="star">*</span> 网址：</label>
+                  <div class="controls">
+                    <div class="input-prepend">
+                      <span class="add-on">http://</span>
+                      <input type="text" class="input-xlarge" id="url" name="url" value="{$channel.url}" />
+                    </div>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label for="deduction" class="control-label">扣量：</label>
+                  <div class="controls">
+                    <select id="deduction" name="deduction">
+                      <?php for ($i = 0; $i < 100; $i += 5): ?>
+                      <option value="{$i/100}" <if condition="$i/100 == $channel['deduction']">selected="selected"</if>>{$i}%</option>
+                      <?php endfor; ?>
+                    </select>
+                  </div>
+                </div>
+                <div class="control-group">
+                  <label class="control-label">状态：</label>
+                  <div class="controls">
+                    <label class="radio inline">
+                      <input type="radio" name="status" id="status_1" value="1" <if condition="$channel['status'] == '1'">checked="checked"</if>>
+                      启用
+                    </label>
+                    &nbsp;&nbsp;
+                    <label class="radio inline">
+                      <input type="radio" name="status" id="status_0" value="0" <if condition="$channel['status'] == '0'">checked="checked"</if>>
+                      停用
+                    </label>
+                  </div>
+                </div>
+                <div class="form-actions">
+                  <input type="hidden" name="id" value="{$channel.id}" />
+                  <input class="btn btn-primary" type="submit" name="submit" value=" 保存 " />
+                </div>
+              </form>
+            </div>
+          </div>
+            </div>
+        </div>
+      </div><!--/.row-fluid-->
+
+    </div><!--/span12-->
+  </div><!--/row-fluid-->
+</div><!--/.container-fluid-->
+
+<include file="Public:footer" />
+<script src="/js/jquery.validate.min.js" type="text/javascript"></script>
+<script type="text/javascript">
+  $('.form').validate({
+    rules: {
+      name: 'required',
+      url: 'required'
+    },
+    messages: {
+      name: '请输入渠道商名',
+      url: '请输入渠道网址'
+    }
+  });
+</script>
+
+</body>
+</html>

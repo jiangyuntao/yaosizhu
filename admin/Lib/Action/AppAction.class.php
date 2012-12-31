@@ -17,7 +17,7 @@ class AppAction extends Action {
         import('ORG.Crypt.Crypt');
         import('ORG.Util.Cookie');
 
-        //$this->_authorize();
+        $this->_authorize();
 
         // 获取来路
         if (isset($_SERVER['HTTP_REFERER'])) {
